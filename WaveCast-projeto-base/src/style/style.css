@@ -12,7 +12,7 @@ body {
     background-color: #01080E;
     color: #FFFFFF;
     height: 1000px;
-    width: 15em;
+    width: 13em;
     padding: 1em;
     box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
 }
@@ -68,7 +68,7 @@ body {
 
 .container {
     background-color: #041832;
-    width: 170vh;
+    width: 200vh;
     padding: 2em;
 }
 
