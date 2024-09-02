@@ -6,16 +6,17 @@ body {
 }
 
 .menu-lateral {
+    height: 100em;
     display: flex;
     flex-direction: column;
     gap: 1em;
     background-color: #01080E;
     color: #FFFFFF;
-    height: 1000px;
-    width: 13em;
     padding: 1em;
     box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+    z-index: 2;
 }
+
 
 .menu-lateral__principal {
     display: flex;
@@ -23,6 +24,7 @@ body {
     gap: 1em;
     justify-content: flex-start;
     padding: 0;
+
 }
 
 .menu-lateral__link {
@@ -67,9 +69,10 @@ body {
 /* V MAIN ABAIXO V */
 
 .container {
+    margin: 0;
     background-color: #041832;
-    width: 200vh;
     padding: 2em;
+    box-sizing: border-box;
 }
 
 .skip-botoes {
@@ -83,14 +86,22 @@ body {
     font-size: 1.8em;
 }
 
-.secao__cartoes {
+.secao__tocados-recentemente {
     display: grid;
     flex-wrap: wrap;
-    grid-template-columns: repeat(3, 30%);
-    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "cartao cartao cartao"
+        "cartao cartao cartao"
+    ;
     gap: 1em;
     padding: 0;
-    width: 108%;
+    width: 100%;
+}
+
+
+.cartoes {
+    list-style-type: none;
+    width: 100%;
 }
 
 .cartao {
@@ -102,7 +113,8 @@ body {
     grid-template-rows: 70% 30%;
     grid-template-columns: auto 1fr auto; /*isso significa "auto auto auto"*/;
     gap: 0px 10px;
-    padding: auto;
+    padding: 0;   
+    grid-area: cartao;
 }
 
 .cartao__imagem {
@@ -147,4 +159,194 @@ button:hover {
     align-self: center;
     grid-column: 3/4;
     grid-row: 1/3;
+}
+
+/* SEÇÃO HIPSTERS */ 
+
+.secao {
+    align-items: center;
+    display: grid;
+    grid-template-areas: 
+        "titulo titulo titulo titulo ver-mais ver-mais" 
+        "secao-hipster secao-hipster secao-hipster secao-hipster secao-hipster secao-hipster"
+    ;
+}
+
+.secao--horizontal__titulo {
+    color: #FFFFFF;
+    font-size: 1.8em;
+    text-decoration: none;
+    grid-area: titulo;
+}
+
+.secao__link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 400;
+    text-align: right;
+    grid-area: ver-mais;
+}
+
+.secao-hipsters {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    width: 100%;
+    padding: 0;
+    grid-area: secao-hipster;
+}
+
+.cartoes-hipsters {
+    padding: 1em;
+    background-color: #C4C4C433;
+    border-radius: 10px;
+}
+
+.cartao-hipster{
+    text-decoration: none;
+    color: #FFFFFF;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "imagem"
+        "titulo"
+        "subtitulo"
+        ;
+    height: 100%;
+    gap: 0.8em;
+}
+
+.cartao-hipster__imagem {
+    width: 8em;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    grid-area: imagem;
+}
+
+.cartao-hipster__titulo {
+    font-size: 16px;
+    width: 8em;
+    padding: 0;
+    margin: 0;
+    grid-area: titulo;
+}
+
+.cartao-hipster__subtitulo {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    grid-area: subtitulo;
+}
+
+/**/ 
+.play-atual {
+    color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-areas: 
+        "info play play volume"
+        "info tempo tempo volume";
+    align-items: center;
+    gap: 1em; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    padding: 0.8em;
+    z-index: 3;
+    
+}
+
+.info {
+    grid-area: info;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.info_escrita {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+}
+
+.play-titulo {
+    font-size: 16px;
+}
+
+.play-subtitulo {
+    font-size: 14px;
+    color: #8c8c8c;
+}
+
+.play-titulo, .play-subtitulo {
+    margin: 0;
+}
+
+.play-controle {
+    display: flex;
+    gap: 0.5em; /* Diminuir o gap entre os controles */
+    align-items: center;
+    grid-area: play;
+    justify-content: center; /* Centraliza o controle de reprodução */
+}
+
+.tempo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    grid-area: tempo;
+    justify-content: center; /* Centraliza a duração */
+}
+
+.tempo-atual, .tempo-total {
+    margin: 0;
+}
+
+.duracao {
+    flex-grow: 1;
+    height: 5px;
+    background-color: gray; /* Cor do fundo da barra */
+    border-radius: 10px;
+    position: relative;
+}
+
+.barra-play-atual {
+    background-color: rgb(255, 255, 255); /* Cor da barra de reprodução atual */
+    width: 10%; /* Ajuste conforme necessário */
+    height: 100%;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Diminuir o gap entre os controles de volume */
+    justify-content: center;
+    grid-area: volume;
+}
+
+.volume {
+    width: 100px; /* Ajuste conforme necessário */
+    height: 5px;
+    background-color: gray;
+    border-radius: 10px;
+    position: relative;
+}
+
+.barra-volume-atual {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    height: 100%;
+}
+
+.volume-menor {
+    width: 0.7em;
+}
+
+.volume-maior {
+    width: 1em;
 }
