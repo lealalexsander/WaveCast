@@ -2,10 +2,20 @@ body {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+    "aside header"
+    "aside main";
+    grid-template-columns: auto 1fr;
 }
 
+.cabecalho {
+    grid-area: header;
+}
+
+
 .menu-lateral {
+    grid-area: aside;
     height: 100em;
     display: flex;
     flex-direction: column;
@@ -19,6 +29,7 @@ body {
 
 
 .menu-lateral__principal {
+    grid-area: main;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -317,7 +328,7 @@ button:hover {
 
 .barra-play-atual {
     background-color: rgb(255, 255, 255); /* Cor da barra de reprodução atual */
-    width: 10%; /* Ajuste conforme necessário */
+    width: 62%; /* Ajuste conforme necessário */
     height: 100%;
 }
 
@@ -349,4 +360,35 @@ button:hover {
 
 .volume-maior {
     width: 1em;
+}
+
+@media screen and (max-width: 360px) {
+    .menu-lateral {
+        display: none;
+    }
+
+    .menu-lateral_logo {
+        width: 4.5em;        
+    }
+
+    .menu-lateral__principal {
+        max-width: 29vw;
+    }
+
+    .menu-lateral__link {
+        width: 10em;
+        font-size: 0.8em;
+    }
+
+    .menu-lateral__link__link {
+        width: 8em;
+        font-size: 0.9em;
+    }
+
+
+
+    .menu-lateral__playlist {
+        font-size: 0.7em;
+
+    }
 }
