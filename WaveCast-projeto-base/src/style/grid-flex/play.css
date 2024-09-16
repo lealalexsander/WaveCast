@@ -1,0 +1,119 @@
+@media screen and (min-width: 360px) {
+    .play-atual {
+        color: #FFFFFF;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr;
+        grid-template-areas: 
+            "info play play volume"
+            "info tempo tempo volume";
+        align-items: center;
+        gap: 1em; 
+        position: fixed; 
+        bottom: 0; 
+        left: 0; 
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9); 
+        padding: 0.8em;
+        z-index: 3;
+        
+    }
+
+    .info {
+        grid-area: info;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .info_escrita {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7em;
+    }
+
+    .play-titulo {
+        font-size: 16px;
+    }
+
+    .play-subtitulo {
+        font-size: 14px;
+        color: #8c8c8c;
+    }
+
+    .play-titulo, .play-subtitulo {
+        margin: 0;
+    }
+
+    .play-controle {
+        display: flex;
+        gap: 0.5em; /* Diminuir o gap entre os controles */
+        align-items: center;
+        grid-area: play;
+        justify-content: center; /* Centraliza o controle de reprodução */
+    }
+
+    .tempo {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        grid-area: tempo;
+        justify-content: center; /* Centraliza a duração */
+    }
+
+    .tempo-atual, .tempo-total {
+        margin: 0;
+    }
+
+    .duracao {
+        flex-grow: 1;
+        height: 5px;
+        background-color: gray; /* Cor do fundo da barra */
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .barra-play-atual {
+        background-color: rgb(255, 255, 255); /* Cor da barra de reprodução atual */
+        width: 62%; /* Ajuste conforme necessário */
+        height: 100%;
+    }
+
+    .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5em; /* Diminuir o gap entre os controles de volume */
+        justify-content: center;
+        grid-area: volume;
+    }
+
+    .volume {
+        width: 100px; /* Ajuste conforme necessário */
+        height: 5px;
+        background-color: gray;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .barra-volume-atual {
+        background-color: rgb(255, 255, 255);
+        width: 50%;
+        height: 100%;
+    }
+
+    .volume-menor {
+        width: 0.7em;
+    }
+
+    .volume-maior {
+        width: 1em;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .play-atual {
+        display: none;
+    }
+
+}
