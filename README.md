@@ -50,4 +50,4 @@ Para visualizar o projeto localmente, siga estas etapas:
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/wavecast.git
+   git clone https://github.com/lealalexsander/wavecast.git
